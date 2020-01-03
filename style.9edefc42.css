@@ -1,0 +1,2 @@
+:root{--bg-color:#eee;--text-color:#000}html{background:var(--bg-color);color:var(--text-color);font-family:sans-serif}body,html{height:100%}body{margin:0;display:flex;align-items:center;justify-content:center}.title{font-size:4em;text-transform:uppercase;margin:0}@media (prefers-color-scheme:dark){body{--bg-color:#333;--text-color:#fff}}
+/*# sourceMappingURL=/style.9edefc42.css.map */
