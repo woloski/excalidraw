@@ -1,3 +1,5 @@
+import "./Popover.css";
+
 import React from "react";
 
 type Props = {
