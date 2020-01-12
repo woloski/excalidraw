@@ -21,7 +21,8 @@ import {
   saveToLocalStorage,
   getElementAtPosition,
   createScene,
-  getElementContainingPosition
+  getElementContainingPosition,
+  importFromShortlink
 } from "./scene";
 
 import { renderScene } from "./renderer";
@@ -200,7 +201,7 @@ export class App extends React.Component<{}, AppState> {
     e.preventDefault();
   };
 
-  public componentDidMount() {
+  public async componentDidMount() {
     document.addEventListener("copy", this.onCopy);
     document.addEventListener("paste", this.onPaste);
     document.addEventListener("cut", this.onCut);
@@ -209,7 +210,20 @@ export class App extends React.Component<{}, AppState> {
     document.addEventListener("mousemove", this.getCurrentCursorPosition);
     window.addEventListener("resize", this.onResize, false);
 
-    const { elements: newElements, appState } = restoreFromLocalStorage();
+    let newElements;
+    let appState;
+    const searchParams = new URLSearchParams(window.location.search);
+
+    if (searchParams.get("share") != null) {
+      const data = await importFromShortlink(searchParams.get("share"));
+      newElements = data.elements;
+      appState = data.appState;
+      window.history.replaceState({}, "Excalidraw", window.location.origin);
+    } else {
+      const data = restoreFromLocalStorage();
+      newElements = data.elements;
+      appState = data.appState;
+    }
 
     if (newElements) {
       elements = newElements;

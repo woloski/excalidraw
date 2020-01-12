@@ -66,6 +66,14 @@ export const PanelExport: React.FC<PanelExportProps> = ({
             </button>
           )}
         </div>
+        <div className="panelExport-imageButtons">
+          <button
+            className="panelExport-exportToShortlinkButton"
+            onClick={() => onExportCanvas("shortlink")}
+          >
+            Get shareable link
+          </button>
+        </div>
         {actionManager.renderAction(
           "changeExportBackground",
           elements,
