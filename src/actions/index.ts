@@ -27,6 +27,7 @@ export {
   actionChangeProjectName,
   actionChangeExportBackground,
   actionSaveScene,
+  actionShareScene,
   actionLoadScene
 } from "./actionExport";
 

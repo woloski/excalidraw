@@ -59,6 +59,7 @@ import {
   actionChangeProjectName,
   actionChangeExportBackground,
   actionLoadScene,
+  actionShareScene,
   actionSaveScene,
   actionCopyStyles,
   actionPasteStyles
@@ -148,6 +149,7 @@ export class App extends React.Component<{}, AppState> {
     this.actionManager.registerAction(actionChangeProjectName);
     this.actionManager.registerAction(actionChangeExportBackground);
     this.actionManager.registerAction(actionSaveScene);
+    this.actionManager.registerAction(actionShareScene);
     this.actionManager.registerAction(actionLoadScene);
 
     this.actionManager.registerAction(actionCopyStyles);

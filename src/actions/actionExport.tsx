@@ -47,7 +47,27 @@ export const actionSaveScene: Action = {
     return {};
   },
   PanelComponent: ({ updateData }) => (
-    <button onClick={() => updateData(null)}>Save as...</button>
+    <button onClick={() => updateData(null)}>Saves as...</button>
+  )
+};
+
+export const actionShareScene: Action = {
+  name: "shareScene",
+  perform: (elements, appState, value) => {
+    fetch("/api", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ a: 1, b: "Textual content" })
+    }).then(response => {
+      response.json();
+    });
+    return {};
+  },
+  PanelComponent: ({ updateData }) => (
+    <button onClick={() => updateData(null)}>Share</button>
   )
 };
 

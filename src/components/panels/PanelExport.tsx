@@ -86,6 +86,12 @@ export const PanelExport: React.FC<PanelExportProps> = ({
           appState,
           syncActionResult
         )}
+        {actionManager.renderAction(
+          "shareScene",
+          elements,
+          appState,
+          syncActionResult
+        )}
       </div>
     </Panel>
   );

@@ -37,7 +37,20 @@ export function saveAsJSON(
     source: window.location.origin,
     elements: elements.map(({ shape, ...el }) => el)
   });
+  console.log("serialized", serialized);
+  saveFile(
+    `${name}.json`,
+    "data:text/plain;charset=utf-8," + encodeURIComponent(serialized)
+  );
+}
 
+export function share(elements: readonly ExcalidrawElement[], name: string) {
+  const serialized = JSON.stringify({
+    version: 1,
+    source: window.location.origin,
+    elements: elements.map(({ shape, ...el }) => el)
+  });
+  console.log("sharing", serialized);
   saveFile(
     `${name}.json`,
     "data:text/plain;charset=utf-8," + encodeURIComponent(serialized)
